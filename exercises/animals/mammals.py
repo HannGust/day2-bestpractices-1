@@ -8,4 +8,6 @@ class Mammals:
                         'Pangolin', 'Panda']
 
     def printMembers(self):
-        print(self.members)
+        print('Members of the Mammals class:')
+        for member in self.members:
+            print(' \t%s '  % member)
