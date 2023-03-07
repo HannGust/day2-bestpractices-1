@@ -6,10 +6,10 @@ Script to test the animals package.
 
 import animals
 
-b = animals.birds.Birds()
+b = animals.Birds()
 b.printMembers()
 
-m = animals.mammals.Mammals()
+m = animals.Mammals()
 m.printMembers()
 
 
