@@ -12,4 +12,5 @@ b.printMembers()
 m = animals.Mammals()
 m.printMembers()
 
-
+f = animals.Fish()
+f.printMembers()
