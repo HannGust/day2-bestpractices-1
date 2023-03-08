@@ -1,4 +1,5 @@
 from .die import Die
+from .die import roll
 from .utils import i_just_throw_an_exception
 
 class GameRunner:
@@ -12,8 +13,8 @@ class GameRunner:
         self.wins = 0
         self.loses = 0
 
-    def reroll_dice(self): # BUGFIX 2: Created this function to isolate rerolling of dice, as the init also resets the score!
-        self.dice = Die.create_dice(5)
+    def reroll_dice(self): # BUGFIX 2: Created this function to isolate rerolling of dice, as the init also resets the score! Rewrote it to use the die.roll function
+        roll(self.dice)
 
     def answer(self):
         total = 0
