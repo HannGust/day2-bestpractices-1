@@ -12,10 +12,13 @@ class GameRunner:
         self.wins = 0
         self.loses = 0
 
+    def reroll_dice(self): # BUGFIX 2: Created this function to isolate rerolling of dice, as the init also resets the score!
+        self.dice = Die.create_dice(5)
+
     def answer(self):
         total = 0
         for die in self.dice:
-            total += 1
+            total += die.value # BUGFIX 1: Fixed this to add the value of the die, instead of just 1
         return total
 
     @classmethod
@@ -23,8 +26,9 @@ class GameRunner:
         # Probably counts wins or something.
         # Great variable name, 10/10.
         c = 0
+        runner = cls() # BUGFIX 2: Moved instantiation to outside game loop, to avoid resetting rounds, wins, losses
         while True:
-            runner = cls()
+            runner.reroll_dice() # BUGFIX 2: Reroll dice here instead of instatiating, to avoid resetting 
 
             print("Round {}\n".format(runner.round))
 
