@@ -1,0 +1,39 @@
+Wrote profile results to matmult_lineprof.py.lprof
+Timer unit: 1e-06 s
+
+Total time: 5.61248 s
+File: matmult_lineprof.py
+Function: main at line 4
+
+Line #      Hits         Time  Per Hit   % Time  Line Contents
+==============================================================
+     4                                           @profile
+     5                                           def main():
+     6         1          0.5      0.5      0.0      N = 250
+     7                                               
+     8                                               # NxN matrix
+     9         1          0.2      0.2      0.0      X = []
+    10       250         29.5      0.1      0.0      for i in range(N):
+    11       250      83531.0    334.1      1.5          X.append([random.randint(0,100) for r in range(N)])
+    12                                               
+    13                                               # Nx(N+1) matrix
+    14         1          0.1      0.1      0.0      Y = []
+    15       250         28.8      0.1      0.0      for i in range(N):
+    16       250      80857.1    323.4      1.4          Y.append([random.randint(0,100) for r in range(N+1)])
+    17                                               
+    18                                               # result is Nx(N+1)
+    19         1          0.1      0.1      0.0      result = []
+    20       250         23.0      0.1      0.0      for i in range(N):
+    21       250        545.2      2.2      0.0          result.append([0] * (N+1))
+    22                                               
+    23                                               # iterate through rows of X
+    24       250         21.8      0.1      0.0      for i in range(len(X)):
+    25                                                   # iterate through columns of Y
+    26     62750       5176.0      0.1      0.1          for j in range(len(Y[0])):
+    27                                                       # iterate through rows of Y
+    28  15687500    1334343.1      0.1     23.8              for k in range(len(Y)):
+    29  15687500    4105393.8      0.3     73.1                  result[i][j] += X[i][k] * Y[k][j]
+    30                                               
+    31       250         28.6      0.1      0.0      for r in result:
+    32       250       2497.7     10.0      0.0          print(r)
+

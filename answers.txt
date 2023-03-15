@@ -1,0 +1,4 @@
+# Answers to the questions
+3a. Line 28 with "for k in range(len(Y)):" and 29 with "result[i][j] += X[i][k] * Y[k][j]" takes the most time, so I would look into that first. Probably the entire three for-loop structure.   
+3b. Lines 25-30, with  "for p in primes: ; while(n%p == 0): ; n = n/p ; factors.append(p) ; if(p > sqrt(n)): ;  break" in the factorize function. 
+3c. 
